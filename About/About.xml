@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Nopower Comms Simplified</name>
+  <author>sulusdacor, Meltup</author>
+  <supportedVersions>
+		<li>1.1</li>
+  </supportedVersions>
+  <packageId>sulusdacor.Meltup.NopowerCommsSimplified</packageId>
+  <loadAfter>
+	  <li>Ludeon.RimWorld</li>
+  </loadAfter>
+
+	<description>Communicate with other factions via Bird Post.
+	
+"Well technicly you are using animals to power your stuff"
+	
+- adds 1 message table (comms console)
+- adds 1 bird cage (needs food to feed the bird, powers comms console literaly)
+- adds 1 trade marker (orbital trade beacon that is fueled by wood)
+- adds 1 medieval research project (all buildings in this mod needs this as prerequisite)
+	
+There are several different textures for the trademarkers and bird cage. you can switch between them by rotating your buildling.
+	
+(To be correct the message table needs 1 power and the bird cage produces one. It is a bit of a workaround. You can totaly abuse but it is your game, so do to your liking. I just wanted a comms console, which fits with low tech/no gun runs)</description>
+</ModMetaData>
