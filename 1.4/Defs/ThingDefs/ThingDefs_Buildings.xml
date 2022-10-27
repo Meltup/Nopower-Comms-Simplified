@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--========================== no power coms - trade marker ============================-->
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>TradeMarker</defName>
+    <label>trade marker</label>
+    <thingClass>Building_OrbitalTradeBeacon</thingClass>
+    <graphicData>
+      <texPath>trade_markers/trademarker</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+	<passability>PassThroughOnly</passability>
+	<pathCost>0</pathCost>
+    <statBases>
+      <MaxHitPoints>75</MaxHitPoints>
+      <WorkToBuild>1300</WorkToBuild>
+	  <Mass>15</Mass>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <description>Required for trading. You can only sell goods that are near an trade goods marker. Can be placed indoors.\n\nTrade markers function as a torch, produce light and heat, require fuel (wood).</description>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+    <fillPercent>0.3</fillPercent>
+	<costList>
+      <Steel>20</Steel>
+    </costList>
+    <stuffCategories>
+      <li>Metallic</li>
+      <li>Stony</li>
+	  <li>Woody</li>
+    </stuffCategories>
+    <costStuffCount>30</costStuffCount>
+	<canOverlapZones>false</canOverlapZones>
+    <comps>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>2.2</fuelConsumptionRate>
+        <fuelCapacity>30.0</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>WoodLog</li>
+          </thingDefs>
+        </fuelFilter>
+		<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+      </li>
+	  <li Class="CompProperties_Glower">
+        <glowRadius>10</glowRadius>
+        <glowColor>(252,187,113,0)</glowColor>
+      </li>
+      <li Class="CompProperties_HeatPusher">
+        <heatPerSecond>3.5</heatPerSecond>
+        <heatPushMaxTemperature>23</heatPushMaxTemperature>
+      </li>
+	  <li Class="CompProperties_FireOverlay">
+        <fireSize>0.5</fireSize>
+        <offset>(0,0,0.2)</offset>
+      </li>
+    </comps>    
+    <designationCategory>Misc</designationCategory>
+    <uiOrder>2100</uiOrder>
+	<rotatable>true</rotatable>
+    <placeWorkers>
+      <li>PlaceWorker_ShowTradeBeaconRadius</li>
+    </placeWorkers>
+	<researchPrerequisites>
+      <li>ProjectBirdPost</li>
+    </researchPrerequisites>
+	<castEdgeShadows>true</castEdgeShadows>
+	<minifiedDef>MinifiedThing</minifiedDef>
+	<uiIconPath>menu_icons/trademarker_menuicon</uiIconPath>
+	<building>
+		<ai_chillDestination>false</ai_chillDestination>
+	</building>
+	<thingCategories>
+      <li>BuildingsMisc</li>
+    </thingCategories>
+	<tickerType>Normal</tickerType>
+  </ThingDef>
+  
+    <!--========================== no power comms - bird cage ============================-->
+
+  
+  <ThingDef ParentName="BuildingBase">
+    <defName>BirdPostCage</defName>
+    <label>bird cage</label>
+	<thingClass>Building</thingClass>
+    <graphicData>
+      <texPath>bird_cage/birdcage</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+	  <shaderType>CutoutComplex</shaderType>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>30</pathCost>
+    <fillPercent>0.15</fillPercent>
+    <castEdgeShadows>true</castEdgeShadows>
+    <rotatable>true</rotatable>
+    <statBases>
+      <MaxHitPoints>30</MaxHitPoints>
+      <WorkToBuild>750</WorkToBuild>
+	  <Mass>7</Mass>
+      <Flammability>1.0</Flammability>
+	  <Cleanliness>-5</Cleanliness>
+    </statBases>
+    <tickerType>Normal</tickerType>
+    <description>A cage that houses a bird capable of carrying messages over long distances. The bird has to fed with raw food or hay every now and then.</description>
+    <size>(1,1)</size>
+    <building>
+		<ai_chillDestination>false</ai_chillDestination>
+    </building>
+	<costList>
+      <Steel>20</Steel>
+    </costList>
+    <stuffCategories>
+      <li>Metallic</li>
+      <li>Stony</li>
+	  <li>Woody</li>
+    </stuffCategories>
+    <costStuffCount>30</costStuffCount>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerPlant</compClass>
+        <basePowerConsumption>-1</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>2.2</fuelConsumptionRate>
+        <fuelCapacity>10.0</fuelCapacity>
+        <fuelFilter>
+			<categories>
+				<li>FoodRaw</li>
+			</categories>
+			<disallowedCategories>
+				<li>EggsFertilized</li>
+			</disallowedCategories>
+			<thingDefs>
+				<li>Hay</li>
+				<li>Kibble</li>
+			<!--	<li>Silage</li>  From VGP -->
+			</thingDefs>
+        </fuelFilter>
+		<showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+      </li>
+    </comps>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <designationCategory>Misc</designationCategory>
+	<uiOrder>2100</uiOrder>
+    <researchPrerequisites>
+      <li>ProjectBirdPost</li>
+    </researchPrerequisites>
+	<minifiedDef>MinifiedThing</minifiedDef>
+	<uiIconPath>menu_icons/birdcage_menuicon</uiIconPath>
+	<thingCategories>
+      <li>BuildingsMisc</li>
+    </thingCategories>
+  </ThingDef>
+  
+    <!--========================== no power comms - message table ============================-->
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>BirdPostMessageTable</defName>
+    <label>message table</label>
+    <thingClass>Building_CommsConsole</thingClass>
+    <graphicData>
+      <texPath>message_table/messagetable</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+	  <shaderType>CutoutComplex</shaderType>
+      <drawSize>(5,4)</drawSize>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+	<pathCost>70</pathCost>
+    <blockWind>false</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>0.5</fillPercent>
+    <statBases>
+      <MaxHitPoints>130</MaxHitPoints>
+      <WorkToBuild>2000</WorkToBuild>
+	  <Mass>20</Mass>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <description>A table for contact with remote traders, coming from the ocean or inland waterways, as well as other factions for trade and diplomacy. Each message table requires a bird cage nearby to quickly attach the newly written messages to the bird.</description>
+    <size>(3,2)</size>
+    <costList>
+      <Steel>40</Steel>
+    </costList>
+	<stuffCategories>
+      <li>Metallic</li>
+      <li>Stony</li>
+	  <li>Woody</li>
+    </stuffCategories>
+    <costStuffCount>80</costStuffCount>
+	<defaultPlacingRot>South</defaultPlacingRot>
+    <interactionCellOffset>(0,0,2)</interactionCellOffset>
+    <hasInteractionCell>true</hasInteractionCell>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <designationCategory>Misc</designationCategory>
+    <comps>
+	  <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <shortCircuitInRain>false</shortCircuitInRain>
+		<basePowerConsumption>1</basePowerConsumption>
+      </li>
+    </comps>
+    <staticSunShadowHeight>0.5</staticSunShadowHeight>
+	<researchPrerequisites>
+      <li>ProjectBirdPost</li>
+    </researchPrerequisites>
+	<minifiedDef>MinifiedThing</minifiedDef>
+	<building>
+			<ai_chillDestination>false</ai_chillDestination>
+	</building>
+	<thingCategories>
+      <li>BuildingsMisc</li>
+    </thingCategories>
+  </ThingDef>
+  
+</Defs>
